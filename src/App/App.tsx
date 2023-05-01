@@ -1,17 +1,24 @@
 import React from 'react';
-import { Logo } from 'assets';
-import cnBind from 'classnames/bind';
 import { TestComponent } from 'components/TestComponent';
+import { createBrowserRouter, createRoutesFromElements, Outlet, Route } from 'react-router-dom';
+import { ErrorPage } from 'pages/ErrorPage';
 
-import styles from './App.module.css';
-
-const cx = cnBind.bind(styles);
-
-export const App: React.FC = () => (
-    <div className={cx('App')}>
-        <header className={cx('App-header')}>
-            <Logo className={cx('App-logo')} />
-            <TestComponent title="File Stacker" />
-        </header>
-    </div>
+export const router = createBrowserRouter(
+    createRoutesFromElements(
+        <Route
+            path="/"
+            element={
+                <header>
+                    Header
+                    <Outlet />
+                </header>
+            }
+            errorElement={<ErrorPage />}
+        >
+            <Route errorElement={<div>Oops... children error!</div>}>
+                <Route index element={<div>Index</div>} />
+                <Route path="contacts" element={<TestComponent title="File Stacker" />} />
+            </Route>
+        </Route>,
+    ),
 );

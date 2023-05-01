@@ -11,7 +11,7 @@ export const App: React.FC = () => (
     <div className={cx('App')}>
         <header className={cx('App-header')}>
             <Logo className={cx('App-logo')} />
-            <TestComponent title="THMOON" />
+            <TestComponent title="File Stacker" />
         </header>
     </div>
 );

@@ -20,6 +20,7 @@
         "spaced-comment": ["error", "always", { "markers": ["/"] }],
         "comma-dangle": ["error", "always-multiline"],
         "arrow-parens": ["error", "always"],
+        "newline-before-return": "error",
 
         "space-before-function-paren": [
             "error",
@@ -100,8 +101,9 @@
         "import/no-unresolved": "off",
         "import/extensions": "off",
         "import/no-extraneous-dependencies": ["off"],
-        "arrow-body-style": "off",
-        "no-unused-expressions": "off"
+        "arrow-body-style": ["error"],
+        "no-unused-expressions": "off",
+        "@typescript-eslint/consistent-type-imports": "error"
     },
     "overrides": [
         {

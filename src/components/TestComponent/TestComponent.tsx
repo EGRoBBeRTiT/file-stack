@@ -1,7 +1,7 @@
 import React from 'react';
 import cnBind from 'classnames/bind';
 
-import { TestComponentProps } from './TestComponent.types';
+import type { TestComponentProps } from './TestComponent.types';
 import styles from './TestComponent.module.css';
 
 const cx = cnBind.bind(styles);

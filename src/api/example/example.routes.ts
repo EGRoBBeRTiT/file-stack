@@ -1,4 +1,4 @@
-import { APIRoutes } from 'types/Routes.types';
+import type { APIRoutes } from 'types/Routes.types';
 
 export interface ExampleResponse {
     data: number;

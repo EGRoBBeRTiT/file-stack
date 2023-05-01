@@ -1,7 +1,8 @@
 import { axiosInstance } from 'api/axios';
 import { sleep } from 'utils/sleep';
 
-import { TEST_ROUTES, ExampleResponse } from './example.routes';
+import type { ExampleResponse } from './example.routes';
+import { TEST_ROUTES } from './example.routes';
 
 export const testFetchData = async (data = 1): Promise<ExampleResponse> => {
     try {

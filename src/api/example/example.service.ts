@@ -1,4 +1,4 @@
-import { ExampleApi } from './example.routes';
+import type { ExampleApi } from './example.routes';
 import { testFetchData } from './testFetchData';
 
 class ExampleService implements ExampleApi {

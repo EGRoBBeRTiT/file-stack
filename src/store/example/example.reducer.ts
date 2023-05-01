@@ -1,4 +1,5 @@
-import { createSlice, isAnyOf, PayloadAction } from '@reduxjs/toolkit';
+import type { PayloadAction } from '@reduxjs/toolkit';
+import { createSlice, isAnyOf } from '@reduxjs/toolkit';
 import type { AppState, AppThunk } from 'store';
 import type { AsyncState } from 'types/AsyncState.types';
 import { handleAsyncActionFulfilled, handleAsyncActionPending, handleAsyncActionReject } from 'utils';

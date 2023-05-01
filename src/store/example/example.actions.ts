@@ -1,6 +1,6 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import { exampleService } from 'api/example/example.service';
-import { AsyncThunkConfig } from 'store';
+import type { AsyncThunkConfig } from 'store';
 
 // The function below is called a thunk and allows us to perform async logic. It
 // can be dispatched like a regular action: `dispatch(incrementAsync(10))`. This

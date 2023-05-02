@@ -4,7 +4,7 @@ import store from 'store';
 import ReactDOM from 'react-dom/client';
 import { GlobalStyles } from 'globals.style';
 import { RouterProvider } from 'react-router-dom';
-import { router } from 'App';
+import { App } from 'App';
 
 import reportWebVitals from './reportWebVitals';
 
@@ -14,7 +14,7 @@ root.render(
     <React.StrictMode>
         <GlobalStyles />
         <Provider store={store}>
-            <RouterProvider router={router} />
+            <RouterProvider router={App} />
         </Provider>
     </React.StrictMode>,
 );

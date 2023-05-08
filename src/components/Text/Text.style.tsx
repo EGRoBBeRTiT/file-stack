@@ -1,6 +1,7 @@
 import type { TextProps } from 'components/Text/Text.types';
 import { Colors } from 'global/colors.style';
-import styled, { css } from 'styled-components';
+import { Include } from 'global/mixins.style';
+import styled from 'styled-components';
 
 export const StyledText = styled.span<Omit<TextProps, 'as'>>`
     color: ${({ color }) => color ?? Colors.BASE_100};
@@ -8,41 +9,16 @@ export const StyledText = styled.span<Omit<TextProps, 'as'>>`
     ${({ type }) => {
         switch (type) {
             case 'title-0':
-                return css`
-                    font-style: normal;
-                    font-weight: 300;
-                    font-size: 24px;
-                    line-height: 29px;
-                `;
+                return Include.font.title_0();
             case 'title-1':
-                return css`
-                    font-style: normal;
-                    font-weight: 400;
-                    font-size: 24px;
-                    line-height: 29px;
-                `;
+                return Include.font.title_1();
             case 'title-2':
-                return css`
-                    font-style: normal;
-                    font-weight: 300;
-                    font-size: 20px;
-                    line-height: 24px;
-                `;
+                return Include.font.title_2();
             case 'label-1':
-                return css`
-                    font-style: normal;
-                    font-weight: 300;
-                    font-size: 16px;
-                    line-height: 19px;
-                `;
+                return Include.font.label_1();
             case 'text-1':
             default:
-                return css`
-                    font-style: normal;
-                    font-weight: 300;
-                    font-size: 14px;
-                    line-height: 17px;
-                `;
+                return Include.font.text_1();
         }
     }}
 `;

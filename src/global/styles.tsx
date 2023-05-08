@@ -1,5 +1,8 @@
-export const MAX_CONTENT_WIDTH = 1200 as const;
-
-export const MAX_HEADER_HEIGHT = 64 as const;
-
-export const CONTENT_PADDING = 32 as const;
+export const Styles = {
+    MAX_CONTENT_WIDTH: 'var(--max-content-width)',
+    MAX_HEADER_HEIGHT: 'var(--max-header-height)',
+    CONTENT_PADDING: 'var(--content-padding)',
+    INPUT_HEIGHT: 'var(--input-height)',
+    MOBILE_MAX_WIDTH: '768px',
+    DESKTOP_MIN_WIDTH: '769px',
+};

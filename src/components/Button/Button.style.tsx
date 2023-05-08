@@ -140,7 +140,7 @@ export const StyledButton = styled.button<Pick<ButtonProps, 'buttonType' | 'isFu
                     border-radius: 8px;
 
                     &:hover {
-                        background: ${lighten(0.1, Colors.PRIMARY)} !important;
+                        background: ${lighten(0.05, Colors.PRIMARY)} !important;
                     }
 
                     &:active {

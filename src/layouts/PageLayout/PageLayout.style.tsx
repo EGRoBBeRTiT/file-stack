@@ -1,5 +1,5 @@
 import { Colors } from 'global/colors.style';
-import { CONTENT_PADDING, MAX_CONTENT_WIDTH, MAX_HEADER_HEIGHT } from 'global/styles';
+import { Styles } from 'global/styles';
 import type { PageLayoutProps } from 'layouts/PageLayout/PageLayout.types';
 import styled from 'styled-components';
 
@@ -15,7 +15,7 @@ export const StyledPageLayout = styled.div<PageLayoutProps>`
 export const StyledContent = styled.div`
     display: flex;
     width: 100%;
-    padding: ${CONTENT_PADDING}px;
-    max-width: calc(${MAX_CONTENT_WIDTH}px + 2 * ${CONTENT_PADDING}px);
-    min-height: calc(100vh - ${MAX_HEADER_HEIGHT}px);
+    padding: ${Styles.CONTENT_PADDING};
+    max-width: calc(${Styles.MAX_CONTENT_WIDTH} + 2 * ${Styles.CONTENT_PADDING});
+    min-height: calc(100vh - ${Styles.MAX_HEADER_HEIGHT});
 `;

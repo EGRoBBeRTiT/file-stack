@@ -1,5 +1,7 @@
+import { IcLogoFull, IcUserRound } from 'assets';
 import { Colors } from 'global/colors.style';
-import { CONTENT_PADDING, MAX_CONTENT_WIDTH, MAX_HEADER_HEIGHT } from 'global/styles';
+import { Include } from 'global/mixins.style';
+import { Styles } from 'global/styles';
 import styled from 'styled-components';
 
 export const StyledAppHeader = styled.header`
@@ -12,15 +14,31 @@ export const StyledAppHeader = styled.header`
     background: ${Colors.PRIMARY};
     display: flex;
     justify-content: center;
-    height: ${MAX_HEADER_HEIGHT}px;
+    height: ${Styles.MAX_HEADER_HEIGHT};
 `;
 
 export const StyledContent = styled.div`
     height: 100%;
     width: 100%;
-    padding-inline: ${CONTENT_PADDING}px;
-    max-width: calc(${MAX_CONTENT_WIDTH}px + 2 * ${CONTENT_PADDING}px);
+    padding-inline: ${Styles.CONTENT_PADDING};
+    max-width: calc(${Styles.MAX_CONTENT_WIDTH} + 2 * ${Styles.CONTENT_PADDING});
     display: flex;
     justify-content: space-between;
     align-items: center;
+`;
+
+export const StyledIcLogoFull = styled(IcLogoFull)`
+    display: flex;
+
+    ${Include.mobile()} {
+        width: 160px;
+    }
+`;
+
+export const StyledIcUserRound = styled(IcUserRound)`
+    display: flex;
+
+    ${Include.mobile()} {
+        width: 40px;
+    }
 `;

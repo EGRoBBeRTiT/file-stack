@@ -10,7 +10,7 @@ export const AppHeader = () => (
             <Link to={appRoutes.main()}>
                 <StyledIcLogoFull />
             </Link>
-            <Link to={appRoutes.profile()}>
+            <Link to={appRoutes.login()}>
                 <StyledIcUserRound />
             </Link>
         </StyledContent>

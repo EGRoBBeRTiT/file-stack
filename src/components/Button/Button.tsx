@@ -8,11 +8,13 @@ const ButtonLinkWrapper = ({
     children,
     isLink,
     href,
+    isFullHeight,
+    isFullWidth,
     ...props
 }: { children: JSX.Element; isLink?: boolean; href?: string } & Partial<LinkProps> &
     Pick<ButtonProps, 'isFullHeight' | 'isFullWidth'>) =>
     isLink ? (
-        <StyledLink {...props} to={href ?? ''}>
+        <StyledLink {...props} fullheight={isFullHeight} fullwidth={isFullWidth} to={href ?? ''}>
             {children}
         </StyledLink>
     ) : (

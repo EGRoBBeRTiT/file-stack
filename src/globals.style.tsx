@@ -10,6 +10,10 @@ export const GlobalStyles = createGlobalStyle`
         --input-height: 48px;
 
         --max-header-height: 64px;
+
+        --container-border-radius: 8px;
+
+        --element-border-radius: 8px;
     }
 
     html,

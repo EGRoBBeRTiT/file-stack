@@ -2,12 +2,13 @@ import type { TypedUseSelectorHook } from 'react-redux';
 import { useDispatch, useSelector } from 'react-redux';
 import type { Action, ThunkAction } from '@reduxjs/toolkit';
 import { configureStore } from '@reduxjs/toolkit';
-import exampleReducer from 'store/example/example.reducer';
+import userReducer from 'store/user/user.reducer';
 import { throwMiddleware } from 'utils';
+import fileReducer from 'store/file/file.reducer';
 
 export const makeStore = () =>
     configureStore({
-        reducer: { example: exampleReducer },
+        reducer: { user: userReducer, file: fileReducer },
         middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(throwMiddleware),
     });
 

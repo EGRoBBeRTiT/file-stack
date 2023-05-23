@@ -1,6 +1,7 @@
 import axios from 'axios';
-import { REACT_BACKEND_URI } from 'config';
+import { BACKEND_URL } from 'config';
 
 export const axiosInstance = axios.create({
-    baseURL: REACT_BACKEND_URI,
+    baseURL: BACKEND_URL,
+    withCredentials: true,
 });

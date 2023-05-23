@@ -2,17 +2,23 @@ import styled, { css } from 'styled-components';
 import { Colors } from 'global/colors.style';
 import { darken, lighten } from 'polished';
 import { Link } from 'react-router-dom';
+import { Styles } from 'global/styles';
 
 import type { ButtonProps } from './Button.types';
 
-export const StyledLink = styled(Link)<Pick<ButtonProps, 'isFullHeight' | 'isFullWidth'>>`
+export const StyledLink = styled(Link)<{ fullwidth?: boolean; fullheight?: boolean }>`
     width: 100%;
 
-    width: ${({ isFullWidth }) => (isFullWidth ? '100%' : 'fit-content')};
-    height: ${({ isFullHeight }) => (isFullHeight ? '100%' : 'fit-content')};
+    width: ${({ fullwidth }) => (fullwidth ? '100%' : 'fit-content')};
+    height: ${({ fullheight }) => (fullheight ? '100%' : 'fit-content')};
 `;
 
 export const StyledButton = styled.button<Pick<ButtonProps, 'buttonType' | 'isFullHeight' | 'isFullWidth' | 'color'>>`
+    all: unset;
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     cursor: pointer;
 
     width: ${({ isFullWidth }) => (isFullWidth ? '100%' : 'fit-content')};
@@ -37,7 +43,7 @@ export const StyledButton = styled.button<Pick<ButtonProps, 'buttonType' | 'isFu
                         color: ${Colors.BASE_0} !important;
                     }
 
-                    border-radius: 8px;
+                    border-radius: ${Styles.ELEMENT_BORDER_RADIUS};
 
                     &:hover {
                         background: ${lighten(0.1, Colors.DANGER)};
@@ -57,7 +63,7 @@ export const StyledButton = styled.button<Pick<ButtonProps, 'buttonType' | 'isFu
                         color: ${Colors.DANGER} !important;
                     }
 
-                    border-radius: 8px;
+                    border-radius: ${Styles.ELEMENT_BORDER_RADIUS};
 
                     &:hover {
                         background: ${Colors.DANGER};
@@ -80,7 +86,7 @@ export const StyledButton = styled.button<Pick<ButtonProps, 'buttonType' | 'isFu
                     background: none;
                     border: 1px solid ${Colors.PRIMARY};
 
-                    border-radius: 8px;
+                    border-radius: ${Styles.ELEMENT_BORDER_RADIUS};
 
                     &,
                     * {
@@ -137,7 +143,7 @@ export const StyledButton = styled.button<Pick<ButtonProps, 'buttonType' | 'isFu
                     background: ${Colors.PRIMARY};
                     border: none;
 
-                    border-radius: 8px;
+                    border-radius: ${Styles.ELEMENT_BORDER_RADIUS};
 
                     &:hover {
                         background: ${lighten(0.05, Colors.PRIMARY)} !important;

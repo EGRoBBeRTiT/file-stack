@@ -5,4 +5,6 @@ export const Styles = {
     INPUT_HEIGHT: 'var(--input-height)',
     MOBILE_MAX_WIDTH: '768px',
     DESKTOP_MIN_WIDTH: '769px',
+    CONTAINER_BORDER_RADIUS: 'var(--container-border-radius)',
+    ELEMENT_BORDER_RADIUS: 'var(--element-border-radius)',
 };

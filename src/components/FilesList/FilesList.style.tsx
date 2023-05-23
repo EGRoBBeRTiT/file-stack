@@ -7,7 +7,7 @@ import styled from 'styled-components';
 export const StylesFilesList = styled.div`
     width: 100%;
     background: ${Colors.BASE_0};
-    border-radius: 16px;
+    border-radius: ${Styles.CONTAINER_BORDER_RADIUS};
     padding: ${Styles.CONTENT_PADDING};
     display: flex;
     flex-direction: column;

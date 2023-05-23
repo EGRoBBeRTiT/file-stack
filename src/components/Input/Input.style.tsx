@@ -5,14 +5,13 @@ import { darken, lighten } from 'polished';
 import styled from 'styled-components';
 
 export const StyledInput = styled.input`
-    --input-border-radius: 8px;
     --input-padding-inline: 10px;
 
     all: unset;
 
     height: ${Styles.INPUT_HEIGHT};
     width: 100%;
-    border-radius: var(--input-border-radius);
+    border-radius: ${Styles.ELEMENT_BORDER_RADIUS};
     border: 2px solid ${Colors.PRIMARY_PALE};
     padding-inline: var(--input-padding-inline);
     transition: all 140ms;

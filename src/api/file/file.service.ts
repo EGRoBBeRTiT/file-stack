@@ -1,0 +1,16 @@
+import type { FileApi } from './file.routes';
+import type { UploadFileProps } from './uploadFile';
+import { uploadFile } from './uploadFile';
+import type { DownloadFileProps } from './downloadFile';
+import { downloadFile } from './downloadFile';
+import { loadFilesList } from './loadFilesList';
+
+class FileService implements FileApi {
+    uploadFile = (data: UploadFileProps) => uploadFile(data);
+
+    downloadFile = (data: DownloadFileProps) => downloadFile(data);
+
+    loadFilesList = () => loadFilesList();
+}
+
+export const fileService = new FileService();

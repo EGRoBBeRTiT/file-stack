@@ -17,7 +17,7 @@ export interface RegisterResponse {
 }
 
 export const register = async (data: RegisterProps): Promise<AxiosResponse<RegisterResponse, unknown> | undefined> => {
-    const response = await axiosInstance.post<RegisterResponse>(USER_ROUTES.register(), { data });
+    const response = await axiosInstance.post<RegisterResponse>(USER_ROUTES.register(), data);
 
     return response;
 };

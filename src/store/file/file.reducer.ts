@@ -17,7 +17,9 @@ const initialState: FileState = {
 export const fileSlice = createSlice({
     name: FILE_SLICE,
     initialState,
-    reducers: {},
+    reducers: {
+        resetFileState: () => initialState,
+    },
     extraReducers: (builder) => {
         builder.addMatcher(isAnyOf(getFilesListAction.fulfilled), (state, { payload }) => {
             state.filesList = payload;
@@ -66,4 +68,5 @@ export const fileSlice = createSlice({
     },
 });
 
+export const { resetFileState } = fileSlice.actions;
 export default fileSlice.reducer;

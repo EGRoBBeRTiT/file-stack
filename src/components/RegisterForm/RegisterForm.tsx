@@ -3,7 +3,6 @@ import { IcUser } from 'assets';
 import { Text } from 'components/Text';
 import { Colors } from 'global/colors.style';
 import { Form } from 'react-final-form';
-import { noop } from 'utils';
 import { appRoutes } from 'routes';
 
 import type { RegisterFormProps } from './RegisterForm.types';
@@ -15,13 +14,13 @@ import {
     StyledRegisterButton,
 } from './RegisterForm.style';
 
-export const RegisterForm = ({ className }: RegisterFormProps) => (
+export const RegisterForm = ({ className, onFormSubmit }: RegisterFormProps) => (
     <StyledRegisterFormContainer className={className}>
         <IcUser />
         <Text type="title-2" color={Colors.PRIMARY}>
             Регистрация
         </Text>
-        <Form onSubmit={noop}>
+        <Form onSubmit={onFormSubmit}>
             {({ handleSubmit }) => (
                 <StyledForm onSubmit={handleSubmit}>
                     <StyledInputField name="username" placeholder="Username" />

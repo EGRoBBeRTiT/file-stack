@@ -27,11 +27,12 @@ export const AuthPage = () => {
         ({ email, password }: AuthFormValues) => {
             dispatch(loginAction({ email: email ?? '', password: password ?? '' }))
                 .then(() => {
+                    navigate(appRoutes.filesList());
                     showToast('Вход успешно выполнен');
                 })
                 .catch(alertError);
         },
-        [alertError, dispatch, showToast],
+        [alertError, dispatch, navigate, showToast],
     );
 
     return <AuthForm onFormSubmit={handleAuthSubmit} />;

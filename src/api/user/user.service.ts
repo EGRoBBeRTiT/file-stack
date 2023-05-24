@@ -5,6 +5,7 @@ import { login } from './login';
 import type { UserApi } from './user.routes';
 import type { RegisterProps } from './register';
 import { register } from './register';
+import { logout } from './logout';
 
 class UserService implements UserApi {
     register = (data: RegisterProps) => register(data);
@@ -12,6 +13,8 @@ class UserService implements UserApi {
     login = (data: LoginProps) => login(data);
 
     getProfile = () => getProfile();
+
+    logout = () => logout();
 }
 
 export const userService = new UserService();

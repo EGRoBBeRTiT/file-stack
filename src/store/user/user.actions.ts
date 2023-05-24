@@ -4,6 +4,7 @@ import type { LoginProps, LoginResponse } from 'api/user/login';
 import type { RegisterProps, RegisterResponse } from 'api/user/register';
 import { userService } from 'api/user/user.service';
 import type { AsyncThunkConfig } from 'store';
+import { resetFileState } from 'store/file';
 
 export const USER_SLICE = 'USER';
 
@@ -35,6 +36,17 @@ export const getProfileAction = createAsyncThunk<GetProfileResponse | undefined,
     `${USER_SLICE}/GET_PROFILE`,
     async () => {
         const response = await userService.getProfile();
+
+        return response?.data;
+    },
+);
+
+export const logoutAction = createAsyncThunk<undefined, undefined, AsyncThunkConfig>(
+    `${USER_SLICE}/LOGOUT`,
+    async (_, { dispatch }) => {
+        const response = await userService.logout();
+
+        dispatch(resetFileState());
 
         return response?.data;
     },

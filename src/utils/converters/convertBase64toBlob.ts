@@ -1,5 +1,5 @@
-export const convertBase64toBlob = (content: string, contentType: string) => {
-    contentType = contentType ?? '';
+export const convertBase64toBlob = (content: string) => {
+    const contentType = 'application/octet-stream';
     const sliceSize = 512;
     const byteCharacters = window.atob(content); // method which converts base64 to binary
     const byteArrays = [];

@@ -16,6 +16,8 @@ export const StyledText = styled.span<Omit<TextProps, 'as'>>`
                 return Include.font.title_2();
             case 'label-1':
                 return Include.font.label_1();
+            case 'text-0':
+                return Include.font.text_0();
             case 'text-1':
             default:
                 return Include.font.text_1();

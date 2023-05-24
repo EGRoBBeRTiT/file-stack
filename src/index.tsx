@@ -5,6 +5,8 @@ import ReactDOM from 'react-dom/client';
 import { GlobalStyles } from 'globals.style';
 import { RouterProvider } from 'react-router-dom';
 import { AppRouter } from 'App';
+import { AlertErrorProvider } from 'components/AlertErrorProvider';
+import { ToastProviderProvider } from 'components/ToastProvider/ToastProvider';
 
 import reportWebVitals from './reportWebVitals';
 
@@ -14,7 +16,11 @@ root.render(
     <React.StrictMode>
         <GlobalStyles />
         <Provider store={store}>
-            <RouterProvider router={AppRouter} />
+            <AlertErrorProvider>
+                <ToastProviderProvider>
+                    <RouterProvider router={AppRouter} />
+                </ToastProviderProvider>
+            </AlertErrorProvider>
         </Provider>
     </React.StrictMode>,
 );

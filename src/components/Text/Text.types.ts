@@ -3,7 +3,7 @@ import type { DetailedHTMLProps, HTMLAttributes } from 'react';
 
 export type DetailedHTMLElementProps<T extends HTMLElement> = Omit<DetailedHTMLProps<HTMLAttributes<T>, T>, 'ref'>;
 
-export type TextType = 'title-0' | 'title-1' | 'title-2' | 'label-1' | 'text-1';
+export type TextType = 'title-0' | 'title-1' | 'title-2' | 'label-1' | 'text-1' | 'text-0';
 
 export type DivTextProps = DetailedHTMLElementProps<HTMLDivElement> & {
     type: TextType;

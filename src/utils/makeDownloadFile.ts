@@ -5,4 +5,5 @@ export const makeDownloadFile = (blob: Blob, fileName: string) => {
     a.download = fileName;
     a.click();
     url.revokeObjectURL(a.href);
+    a.remove();
 };

@@ -1,3 +1,4 @@
+import { Colors } from 'global/colors.style';
 import { Styles } from 'global/styles';
 import { css } from 'styled-components';
 
@@ -41,6 +42,13 @@ export const Include = {
             line-height: 19px;
         `,
 
+        text_0: () => css`
+            font-style: normal;
+            font-weight: 400;
+            font-size: 12px;
+            line-height: 15px;
+        `,
+
         text_1: () => css`
             font-style: normal;
             font-weight: 300;
@@ -48,4 +56,38 @@ export const Include = {
             line-height: 17px;
         `,
     },
+
+    CustomScrollbar: (color = Colors.BASE_0) => css`
+        &::-webkit-scrollbar {
+            position: absolute;
+            width: 8px;
+            height: 8px;
+        }
+
+        /* Track */
+        &::-webkit-scrollbar-track {
+            background: ${color};
+        }
+
+        /* Handle */
+        &::-webkit-scrollbar-thumb {
+            background: #cdcdcd80;
+            border: 2px solid ${color};
+            border-radius: 10px;
+        }
+
+        /* Handle on hover */
+        &::-webkit-scrollbar-thumb:hover {
+            background: #b4b4b480;
+        }
+    `,
+
+    cut_for_n_rows: (n = 1) => css`
+        display: -webkit-box;
+        overflow: hidden;
+        white-space: pre-line;
+        text-overflow: ellipsis;
+        -webkit-line-clamp: ${n};
+        -webkit-box-orient: vertical;
+    `,
 } as const;

@@ -8,6 +8,7 @@ import { FilesListPage } from 'pages/FilesListPage';
 import { RegisterPage } from 'pages/RegisterPage';
 import { appRoutes } from 'routes';
 import { App } from 'App/App';
+import { ProfilePage } from 'pages/ProfilePage';
 
 export const AppRouter = createBrowserRouter(
     createRoutesFromElements(
@@ -23,6 +24,7 @@ export const AppRouter = createBrowserRouter(
             <Route path={appRoutes.auth()} element={<PageLayout background={Colors.BASE_0} />}>
                 <Route path={appRoutes.login()} element={<AuthPage />} />
                 <Route path={appRoutes.register()} index element={<RegisterPage />} />
+                <Route path={appRoutes.profile()} index element={<ProfilePage />} />
             </Route>
         </Route>,
     ),

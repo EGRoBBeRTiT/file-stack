@@ -4,16 +4,15 @@ import { createGlobalStyle } from 'styled-components';
 export const GlobalStyles = createGlobalStyle`
     :root{
         --max-content-width: 1200px;
-
         --content-padding: 32px;
-
         --input-height: 48px;
-
         --max-header-height: 64px;
-
-        --container-border-radius: 8px;
-
+        --container-border-radius: 16px;
         --element-border-radius: 8px;
+        --element-main-padding: 16px;
+        --element-small-padding: 8px;
+
+
     }
 
     html,

@@ -1,9 +1,12 @@
 import { FilesList } from 'components/FilesList';
 import { useLoadFilesList } from 'hooks/loaders/useLoadFilesList';
 import React from 'react';
+import { useAppSelector } from 'store';
 
 export const FilesListPage = () => {
-    useLoadFilesList();
+    const { filesList } = useAppSelector((store) => store.file);
 
-    return <FilesList />;
+    useLoadFilesList(!filesList?.length);
+
+    return <FilesList filesList={filesList} />;
 };

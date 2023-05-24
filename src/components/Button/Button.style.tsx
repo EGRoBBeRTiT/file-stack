@@ -22,7 +22,7 @@ export const StyledButton = styled.button<Pick<ButtonProps, 'buttonType' | 'isFu
     cursor: pointer;
 
     width: ${({ isFullWidth }) => (isFullWidth ? '100%' : 'fit-content')};
-    height: ${({ isFullHeight }) => (isFullHeight ? '100%' : '48px')};
+    min-height: ${({ isFullHeight }) => (isFullHeight ? '100%' : '48px')};
 
     padding-inline: 18px;
 
@@ -37,6 +37,8 @@ export const StyledButton = styled.button<Pick<ButtonProps, 'buttonType' | 'isFu
                 return css`
                     background: ${Colors.DANGER};
                     border: none;
+
+                    min-height: 36px;
 
                     &,
                     * {
@@ -57,6 +59,7 @@ export const StyledButton = styled.button<Pick<ButtonProps, 'buttonType' | 'isFu
                 return css`
                     background: none;
                     border: 1px solid ${Colors.DANGER};
+                    min-height: 36px;
 
                     &,
                     * {
@@ -85,6 +88,7 @@ export const StyledButton = styled.button<Pick<ButtonProps, 'buttonType' | 'isFu
                 return css`
                     background: none;
                     border: 1px solid ${Colors.PRIMARY};
+                    min-height: 36px;
 
                     border-radius: ${Styles.ELEMENT_BORDER_RADIUS};
 

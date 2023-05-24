@@ -5,7 +5,7 @@ class AppRoutes {
 
     filesList = () => '/files-list';
 
-    profile = () => '/profile';
+    profile = () => `${this.auth()}/profile`;
 
     auth = () => '/auth';
 

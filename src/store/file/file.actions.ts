@@ -4,7 +4,6 @@ import { fileService } from 'api/file/file.service';
 import type { UploadFileProps } from 'api/file/uploadFile';
 import type { AsyncThunkConfig } from 'store';
 import type { AppFile } from 'types/Files.types';
-import { convertBase64toBlob } from 'utils';
 
 export const FILE_SLICE = 'FILE';
 
@@ -19,14 +18,12 @@ export const uploadFileAction = createAsyncThunk<AppFile | undefined, UploadFile
     },
 );
 
-export const downloadFileAction = createAsyncThunk<Blob | undefined, DownloadFileProps, AsyncThunkConfig>(
+export const downloadFileAction = createAsyncThunk<string | undefined, DownloadFileProps, AsyncThunkConfig>(
     `${FILE_SLICE}/DOWNLOAD_FILE`,
     async (data) => {
         const response = await fileService.downloadFile(data);
 
-        if (response?.data) {
-            return convertBase64toBlob(response?.data ?? '', 'application/octet-stream');
-        }
+        return response?.data;
     },
 );
 
@@ -34,6 +31,18 @@ export const getFilesListAction = createAsyncThunk<AppFile[] | undefined, undefi
     `${FILE_SLICE}/GET_FILES_LIST`,
     async () => {
         const response = await fileService.loadFilesList();
+
+        return response?.data.map(({ last_modified: lastModified, ...file }) => ({
+            ...file,
+            lastModified,
+        }));
+    },
+);
+
+export const deleteFileAction = createAsyncThunk<undefined, DownloadFileProps, AsyncThunkConfig>(
+    `${FILE_SLICE}/DELETE_FILE`,
+    async (data) => {
+        const response = await fileService.deleteFile(data);
 
         return response?.data;
     },

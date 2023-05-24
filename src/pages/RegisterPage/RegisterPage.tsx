@@ -1,5 +1,6 @@
 import type { RegisterFormValues } from 'components/RegisterForm';
 import { RegisterForm } from 'components/RegisterForm';
+import { useErrorAlert } from 'hooks/useErrorAlert';
 import { useIsLoggedIn } from 'hooks/useIsLoggedIn';
 import { useToast } from 'hooks/useToast';
 import React, { useCallback, useEffect } from 'react';
@@ -13,6 +14,7 @@ export const RegisterPage = () => {
     const showToast = useToast();
     const loggedIn = useIsLoggedIn();
     const navigate = useNavigate();
+    const alertError = useErrorAlert();
 
     useEffect(() => {
         if (loggedIn) {
@@ -29,12 +31,14 @@ export const RegisterPage = () => {
                     passwordRepeat: passwordRepeat ?? '',
                     username: username ?? '',
                 }),
-            ).then(() => {
-                navigate(appRoutes.login());
-                showToast('Вы зарегистрировались!');
-            });
+            )
+                .then(() => {
+                    navigate(appRoutes.login());
+                    showToast('Вы зарегистрировались!');
+                })
+                .catch(alertError);
         },
-        [dispatch, navigate, showToast],
+        [alertError, dispatch, navigate, showToast],
     );
 
     return <RegisterForm onFormSubmit={handleRegisterSubmit} />;

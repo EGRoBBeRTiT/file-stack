@@ -18,7 +18,7 @@ export const Toast = ({ children, isOpen, onClose }: ToastProps) => {
 
             const timerId = setTimeout(() => {
                 setContentStyles({ transform: 'translateY(-24px)' });
-            }, 0);
+            }, 20);
 
             const timerIdRemove = setTimeout(() => {
                 onClose();

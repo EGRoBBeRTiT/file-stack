@@ -16,7 +16,7 @@ export const Modal = ({ children, isOpen, onClose }: ModalProps) => {
 
             const timerId = setTimeout(() => {
                 setContentStyles({ opacity: 1, transform: 'translateY(0)' });
-            }, 0);
+            }, 10);
 
             return () => clearTimeout(timerId);
         }

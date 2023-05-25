@@ -7,10 +7,24 @@ import type { AppFile } from 'types/Files.types';
 
 export const FILE_SLICE = 'FILE';
 
+export const getFilesListAction = createAsyncThunk<AppFile[] | undefined, undefined, AsyncThunkConfig>(
+    `${FILE_SLICE}/GET_FILES_LIST`,
+    async () => {
+        const response = await fileService.loadFilesList();
+
+        return response?.data.map(({ last_modified: lastModified, ...file }) => ({
+            ...file,
+            lastModified,
+        }));
+    },
+);
+
 export const uploadFileAction = createAsyncThunk<AppFile | undefined, UploadFileProps, AsyncThunkConfig>(
     `${FILE_SLICE}/UPLOAD_FILE`,
-    async (data) => {
+    async (data, { dispatch }) => {
         const response = await fileService.uploadFile(data);
+
+        dispatch(getFilesListAction());
 
         if (response?.data) {
             return { ...response?.data, lastModified: response?.data.last_modified ?? '' };
@@ -24,18 +38,6 @@ export const downloadFileAction = createAsyncThunk<string | undefined, DownloadF
         const response = await fileService.downloadFile(data);
 
         return response?.data;
-    },
-);
-
-export const getFilesListAction = createAsyncThunk<AppFile[] | undefined, undefined, AsyncThunkConfig>(
-    `${FILE_SLICE}/GET_FILES_LIST`,
-    async () => {
-        const response = await fileService.loadFilesList();
-
-        return response?.data.map(({ last_modified: lastModified, ...file }) => ({
-            ...file,
-            lastModified,
-        }));
     },
 );
 

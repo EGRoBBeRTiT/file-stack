@@ -4,6 +4,10 @@ export const StyledModalContent = styled.div`
     opacity: 0;
     transform: translateY(50px);
     transition: all 200ms;
+    transform: translate3d(0, 0, 0);
+    min-width: 400px;
+
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
 `;
 
 export const StyledModalContainer = styled.div<{ isOpen: boolean }>`
@@ -21,7 +25,7 @@ export const StyledModalContainer = styled.div<{ isOpen: boolean }>`
     justify-content: center;
     background: none;
 
-    transition: background 200ms;
+    transition: visibility 200ms, background 200ms;
 
     ${({ isOpen }) =>
         !isOpen

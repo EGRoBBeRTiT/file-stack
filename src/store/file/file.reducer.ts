@@ -24,13 +24,6 @@ export const fileSlice = createSlice({
         builder.addMatcher(isAnyOf(getFilesListAction.fulfilled), (state, { payload }) => {
             state.filesList = payload;
         });
-        builder.addMatcher(isAnyOf(uploadFileAction.fulfilled), (state, { payload }) => {
-            if (state.filesList && payload) {
-                state.filesList[state.filesList.length] = payload;
-            } else if (payload) {
-                state.filesList = [payload];
-            }
-        });
         builder.addMatcher(isAnyOf(deleteFileAction.fulfilled), (state, { meta }) => {
             const { fileName } = meta.arg;
 

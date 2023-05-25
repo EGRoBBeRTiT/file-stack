@@ -1,4 +1,5 @@
 import { Colors } from 'global/colors.style';
+import { Include } from 'global/mixins.style';
 import { Styles } from 'global/styles';
 import type { PageLayoutProps } from 'layouts/PageLayout/PageLayout.types';
 import styled from 'styled-components';
@@ -18,4 +19,8 @@ export const StyledContent = styled.div`
     padding: ${Styles.CONTENT_PADDING};
     max-width: calc(${Styles.MAX_CONTENT_WIDTH} + 2 * ${Styles.CONTENT_PADDING});
     min-height: calc(100vh - ${Styles.MAX_HEADER_HEIGHT});
+
+    ${Include.mobile} {
+        padding-inline: 0;
+    }
 `;

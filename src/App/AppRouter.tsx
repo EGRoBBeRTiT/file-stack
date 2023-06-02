@@ -9,6 +9,12 @@ import { RegisterPage } from 'pages/RegisterPage';
 import { appRoutes } from 'routes';
 import { App } from 'App/App';
 import { ProfilePage } from 'pages/ProfilePage';
+import { ModelObject } from 'App/ModelObject';
+import styled from 'styled-components';
+
+const StyledPageLayout = styled(PageLayout)`
+    max-width: 100vw;
+`;
 
 export const AppRouter = createBrowserRouter(
     createRoutesFromElements(
@@ -18,6 +24,9 @@ export const AppRouter = createBrowserRouter(
                 element={<Navigate to={appRoutes.main()} replace />}
                 errorElement={<ErrorPage />}
             />
+            <Route path={appRoutes.object()} element={<StyledPageLayout background={Colors.BASE_0} />}>
+                <Route index element={<ModelObject />} />
+            </Route>
             <Route path={appRoutes.main()} element={<PageLayout background={Colors.PRIMARY_PALE} />}>
                 <Route index element={<FilesListPage />} />
             </Route>

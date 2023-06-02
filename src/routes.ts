@@ -12,6 +12,8 @@ class AppRoutes {
     register = () => `${this.auth()}/register`;
 
     login = () => `${this.auth()}/login`;
+
+    object = () => `/object`;
 }
 
 export const appRoutes = new AppRoutes();

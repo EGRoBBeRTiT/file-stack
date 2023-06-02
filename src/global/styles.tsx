@@ -9,4 +9,4 @@ export const Styles = {
     DESKTOP_MIN_WIDTH: '769px',
     CONTAINER_BORDER_RADIUS: 'var(--container-border-radius)',
     ELEMENT_BORDER_RADIUS: 'var(--element-border-radius)',
-};
+} as const;
